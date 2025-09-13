@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARAJITO - Iniciar sesión</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 50px 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        /* Título de la app */
+        .logo-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2e59e5; /* Color azul */
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        /* Título de la sección */
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        /* Subtítulo */
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Campo de texto (email) */
+        .input-field {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+        }
+        
+        .input-field::placeholder {
+            color: #aaa;
+        }
+
+        /* Botón principal */
+        .main-button {
+            width: 100%;
+            padding: 18px;
+            background-color: #2e59e5;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-button:hover {
+            background-color: #254ac2;
+        }
+
+        /* Separador "o" */
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #999;
+            margin: 30px 0;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .separator:not(:empty)::before {
+            margin-right: .25em;
+        }
+
+        .separator:not(:empty)::after {
+            margin-left: .25em;
+        }
+        
+        /* Botones de redes sociales */
+        .social-button {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .social-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+        }
+
+        /* Texto de términos y condiciones */
+        .terms-text {
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+        }
+        
+        .terms-text a {
+            color: #888;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo-title">GARAJITO</h1>
+        <h2 class="section-title">Crea una cuenta</h2>
+        <p class="section-subtitle">Ingresa tu email para iniciar sesion</p>
+        
+        <input type="email" class="input-field" placeholder="email@domain.com">
+        <button class="main-button">Continue</button>
+        
+        <div class="separator">or</div>
+        
+        <a href="#" class="social-button">
+            <img src="https://www.google.com/favicon.ico" alt="Google Logo">
+            Continue with Google
+        </a>
+        
+        <a href="#" class="social-button">
+            <img src="https://www.apple.com/favicon.ico" alt="Apple Logo">
+            Continue with Apple
+        </a>
+        
+        <p class="terms-text">
+            By clicking continue, you agree to our 
+            <a href="#">Terms of Service</a>
+            and
+            <a href="#">Privacy Policy</a>
+        </p>
+    </div>
+</body>
+</html>
