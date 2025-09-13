@@ -1,4 +1,3 @@
-Pago
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,14 +32,12 @@ Pago
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
-    <!-- Contenedor principal de la tarjeta de pago -->
     <div class="bg-white p-8 rounded-2xl w-full max-w-md card">
         <div id="payment-form">
             <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">Pago de Estacionamiento</h1>
             <p class="text-gray-500 text-center mb-6">Completa tu compra de espacio.</p>
 
             <form id="card-form" class="space-y-6">
-                <!-- Información del Estacionamiento -->
                 <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
                     <h2 class="text-xl font-semibold text-blue-700 mb-2">Detalles del Pago</h2>
                     <div class="text-gray-600">
@@ -50,7 +47,6 @@ Pago
                     </div>
                 </div>
 
-                <!-- Campos del formulario de la tarjeta -->
                 <div class="input-group">
                     <label for="card-number" class="block text-sm font-medium text-gray-700 mb-1">Número de Tarjeta</label>
                     <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required
@@ -61,6 +57,12 @@ Pago
                     <label for="card-name" class="block text-sm font-medium text-gray-700 mb-1">Nombre en la Tarjeta</label>
                     <input type="text" id="card-name" name="card-name" placeholder="Ej. Juan Pérez" required
                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 transition-all text-sm">
+                </div>
+
+                <div class="input-group">
+                    <label for="placas" class="block text-sm font-medium text-gray-700 mb-1">Placas del Vehículo</label>
+                    <input type="text" id="placas" name="placas" placeholder="ABC-1234" required
+                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 transition-all text-sm uppercase">
                 </div>
 
                 <div class="flex space-x-4">
@@ -76,7 +78,6 @@ Pago
                     </div>
                 </div>
 
-                <!-- Botón de pago -->
                 <button type="submit" id="pay-button"
                         class="w-full bg-blue-600 text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-all text-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
                     Pagar Ahora
@@ -85,7 +86,6 @@ Pago
         </div>
     </div>
 
-    <!-- Modal de confirmación de éxito (inicialmente oculto) -->
     <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden modal">
         <div class="bg-white p-8 rounded-2xl w-full max-w-sm text-center card">
             <svg class="w-20 h-20 text-green-500 mx-auto mb-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,6 +108,7 @@ Pago
             const payButton = document.getElementById('pay-button');
             const cardNumberInput = document.getElementById('card-number');
             const expiryDateInput = document.getElementById('expiry-date');
+            const placasInput = document.getElementById('placas');
 
             // Formato del número de tarjeta
             cardNumberInput.addEventListener('input', (event) => {
@@ -130,6 +131,12 @@ Pago
                 }
                 event.target.value = value;
             });
+            
+            // Convertir el texto de las placas a mayúsculas
+            placasInput.addEventListener('input', (event) => {
+                event.target.value = event.target.value.toUpperCase();
+            });
+
 
             // Manejo del envío del formulario
             cardForm.addEventListener('submit', (event) => {
@@ -138,6 +145,10 @@ Pago
                 // Aquí simularías la lógica de pago
                 payButton.textContent = 'Procesando...';
                 payButton.disabled = true;
+
+                // **Aquí puedes obtener el valor de las placas para usarlo en el back-end**
+                const placas = placasInput.value;
+                console.log('Placas ingresadas:', placas);
 
                 setTimeout(() => {
                     // Simulación de éxito
